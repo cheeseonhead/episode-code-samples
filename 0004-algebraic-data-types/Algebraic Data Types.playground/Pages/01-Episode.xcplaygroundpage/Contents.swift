@@ -198,4 +198,14 @@ import Foundation
 //Result<(Data, URLResponse), Error>
 //Result<Date, Never>
 //Result<A, Error>?
+
+func +<A, B>(_ a: A.Type, _ b: B.Type) -> Either<A, B>.Type {
+    return Either<A, B>.self
+}
+
+func *<A, B>(_ a: A.Type, _ b: B.Type) -> Pair<A, B>.Type {
+    return Pair<A, B>.self
+}
+
+dump(Theme.self + State.self * State.self)
 //: [See the next page](@next) for exercises!
