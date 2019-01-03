@@ -3,7 +3,10 @@
 
  1. Explore the equivalence of `1^a = a`.
  */
-// TODO
+// 1 <- a = a
+// a -> 1 = a
+// Void -> A = A
+
 /*:
  2. Explore the properties of `0^a`. Consider the cases where `a = 0` and `a != 0` separately.
  */

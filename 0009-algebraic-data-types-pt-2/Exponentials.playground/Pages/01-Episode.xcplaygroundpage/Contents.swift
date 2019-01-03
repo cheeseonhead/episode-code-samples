@@ -294,11 +294,22 @@ pow(a, b + c) == pow(a, b) * pow(a, c)
 // Either<B, C> -> A = (B -> A, C -> A)
 
 func to<A, B, C>(_ f: @escaping (Either<B, C>) -> A) -> ((B) -> A, (C) -> A) {
-  fatalError("exercise for the viewer")
+    return ({ b in
+        return f(.left(b))
+    },{ c in
+        return f(.right(c))
+    })
 }
 
 func from<A, B, C>(_ f: ((B) -> A, (C) -> A)) -> (Either<B, C>) -> A {
-  fatalError("exercise for the viewer")
+    return { e in
+        switch e {
+        case let .left(b):
+            return f.0(b)
+        case let .right(c):
+            return f.1(c)
+        }
+    }
 }
 
 // (a * b)^c = a^c * b^c

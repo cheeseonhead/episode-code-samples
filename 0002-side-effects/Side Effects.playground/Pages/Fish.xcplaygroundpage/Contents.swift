@@ -106,6 +106,12 @@ func >=> <A, B, C>(
   >=> square
   >>> computeAndPrint
 
+func map<A, B>(_ f: @escaping (A) -> B) -> (A?) -> B? {
+    return { a in
+        guard let a = a else { return nil }
+        return f(a)
+    }
+}
 
 func >=> <A, B, C>(
   _ f: @escaping (A) -> B?,
@@ -113,7 +119,8 @@ func >=> <A, B, C>(
   ) -> ((A) -> C?) {
 
   return { a in
-    fatalError()
+    guard let b = f(a) else { return nil }
+    return g(b)
   }
 }
 
@@ -125,7 +132,7 @@ func >=> <A, B, C>(
   ) -> ((A) -> [C]) {
 
   return { a in
-    fatalError()
+    f(a).map(g).flatMap { $0 }
   }
 }
 

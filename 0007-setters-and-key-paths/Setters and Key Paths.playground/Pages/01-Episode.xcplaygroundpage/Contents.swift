@@ -142,7 +142,9 @@ let guaranteeHeaders = (prop(\URLRequest.allHTTPHeaderFields)) { $0 ?? [:] }
 let postJson =
   guaranteeHeaders
     <> (prop(\.httpMethod)) { _ in "POST" }
-    <> (prop(\.allHTTPHeaderFields) <<< map <<< prop(\.["Content-Type"])) { _ in "application/json; charset=utf-8"}
+    <> (prop(\.allHTTPHeaderFields)
+        <<< map
+        <<< prop(\.["Content-Type"])) { _ in "application/json; charset=utf-8"}
 
 let gitHubAccept =
   guaranteeHeaders
