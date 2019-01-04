@@ -52,11 +52,6 @@ typealias Email = Tagged<EmailTag, String>
 struct Subscription: Decodable {
   //  struct Id: Decodable, RawRepresentable, Equatable { let rawValue: Int }
   typealias Id = Tagged<Subscription, Int>
-    typealias UUID = Tagged<Subscription, String>
-
-    var real_uuid: UUID {
-        return uuid
-    }
 
   let id: Id
   let ownerId: User.Id

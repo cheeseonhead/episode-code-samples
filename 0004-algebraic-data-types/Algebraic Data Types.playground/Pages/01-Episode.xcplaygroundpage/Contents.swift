@@ -87,6 +87,13 @@ enum Either<A, B> {
   case right(B)
 }
 
+enum Result<A> {
+    case value(A)
+    case error(Error)
+}
+
+
+
 Either<Bool, Bool>.left(true)
 Either<Bool, Bool>.left(false)
 Either<Bool, Bool>.right(true)
@@ -179,6 +186,7 @@ product([1, 2]) * 1 == product([1, 2])
 
 import Foundation
 
+
 //URLSession.shared
 //  .dataTask(with: <#T##URL#>, completionHandler: <#T##(Data?, URLResponse?, Error?) -> Void#>)
 
@@ -193,6 +201,11 @@ import Foundation
 //     + 1
 
 // Data * URLResponse + Error
+
+// Data * Error + URLResponse * Error
+// (Data + URLREsopnse) * Error
+
+
 
 //Either<Pair<Data, URLResponse>, Error>
 //Result<(Data, URLResponse), Error>

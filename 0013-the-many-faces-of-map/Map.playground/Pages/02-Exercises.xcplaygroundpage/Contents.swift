@@ -11,6 +11,24 @@
 
  */
 // TODO
+
+let numbers: [Int] = [1,2,3,4]
+
+func map(_ list: [Int], _ f: (Int) -> Int) -> [Int] {
+    return list.map(f)
+}
+
+func map<A, B>(_ list: [A], _ f: (A) -> B) -> [B] {
+    return list.map(f)
+}
+
+func getCount(_ str: String) -> Int {
+    return str.count
+}
+
+let strs = ["Hello", "World", "!"]
+
+map(strs, getCount)
 /*:
  2. Implement the following function:
 

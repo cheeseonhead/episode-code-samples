@@ -1,4 +1,58 @@
 
+enum NaturalNumber {
+    case zero
+    indirect case successor(NaturalNumber)
+}
+
+enum Three {
+    case one, two, three
+}
+
+let aThree: Three
+
+// Three = 1 + 1 + 1
+
+struct Pair {
+    let bool: Bool
+    let aThree: Three
+}
+
+// Bool = 1 + 1
+
+// Pair<Bool, Three> = 2 * 3 = 6
+
+
+// NaturalNumber = 1 + NaturalNumber
+//               = 1 + (1 + NaturalNumber)
+//               = 1 + 1 + 1 + ........
+
+enum List<A> {
+    case empty
+    indirect case concat(A, List<A>)
+}
+
+//              = 1 + (A + List<A>)
+//              = 1 + (A + (A + List<A>))
+
+
+// Void = 1
+// List<Void> = NaturalNumber
+
+let variable: Void
+
+// (A) -> B
+// Never ^ Void
+
+// (Void) -> Never
+func weird(_ v: Void) -> Never {
+    weird(v)
+}
+
+// (Never) -> Void
+// Void ^ Never
+// 1 ^ 0
+
+
 [1, 2, 3]
   .map { $0 + 1 }
 [1, 2, 3]
