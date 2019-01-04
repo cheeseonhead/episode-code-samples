@@ -14,6 +14,7 @@
  3.) Recall that [a setter is just a function](https://www.pointfree.co/episodes/ep6-functional-setters#t813) `((A) -> B) -> (S) -> T`. Determine the variance of each type parameter, and define a `map` and `contramap` for each one. Further, for each `map` and `contramap` write a description of what those operations mean intuitively in terms of setters.
  */
 // TODO
+
 /*:
  4.) Define `union`, `intersect`, and `invert` on `PredicateSet`.
  */
